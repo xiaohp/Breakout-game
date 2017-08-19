@@ -3,19 +3,18 @@ class GuaGame {
         window.fps = fps
         this.images = images
         this.runCallback = runCallback
-        //
+        
         this.scene = null
         this.actions = {}
         this.keydowns = {}
         this.canvas = document.querySelector('#id-canvas')
         this.context = this.canvas.getContext('2d')
         // events
-        var self = this
         window.addEventListener('keydown', event => {
-            this.keydowns[event.key] = true
+            this.keydowns[event.key] = 'down'
         })
-        window.addEventListener('keyup', function(event){
-            self.keydowns[event.key] = false
+        window.addEventListener('keyup', event => {
+            this.keydowns[event.key] = 'up'
         })
         this.init()
     }
@@ -46,9 +45,14 @@ class GuaGame {
         var actions = Object.keys(g.actions)
         for (var i = 0; i < actions.length; i++) {
             var key = actions[i]
-            if(g.keydowns[key]) {
+            var status = g.keydowns[key]
+            if (status == 'down') {
                 // 如果按键被按下, 调用注册的 action
-                g.actions[key]()
+                g.actions[key]('down')
+            } else if (status == 'up') {
+                g.actions[key]('up')
+                // 删除 key 状态
+                g.keydowns[key] = null
             }
         }
         // update
