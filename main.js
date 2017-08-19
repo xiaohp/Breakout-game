@@ -10,6 +10,8 @@ var loadLevel = function(game, n) {
     return blocks
 }
 
+var blocks = []
+
 var enableDebugMode = function(game, enable) {
     if(!enable) {
         return
@@ -22,6 +24,7 @@ var enableDebugMode = function(game, enable) {
             window.paused = !window.paused
         } else if ('1234567'.includes(k)) {
             // 为了 debug 临时加的载入关卡功能
+            log('debug loadLevel')
             blocks = loadLevel(game, Number(k))
         }
     })

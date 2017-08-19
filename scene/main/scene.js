@@ -8,7 +8,7 @@ var Scene = function(game) {
 
     var score = 0
 
-    var blocks = loadLevel(game, 1)
+    blocks = loadLevel(game, 1)
 
     game.registerAction('a', function(){
         paddle.moveLeft()
@@ -80,7 +80,7 @@ var Scene = function(game) {
     game.canvas.addEventListener('mousedown', function(event) {
         var x = event.offsetX
         var y = event.offsetY
-        log(x, y, event)
+        // log(x, y, event)
         // 检查是否点中了 ball
         if (ball.hasPoint(x, y)) {
             // 设置拖拽状态
@@ -100,7 +100,7 @@ var Scene = function(game) {
     game.canvas.addEventListener('mouseup', function(event) {
         var x = event.offsetX
         var y = event.offsetY
-        log(x, y, 'up')
+        // log(x, y, 'up')
         enableDrag = false
     })
 
