@@ -10,7 +10,7 @@ var loadLevel = function(game, n) {
 
     currentLevel.num  = n
     currentLevel.load = true
-    
+
     return blocks
 }
 // 包含砖块实例的数组
@@ -20,7 +20,7 @@ var currentLevel = {
     num: 0,
     load: false,
 }
-
+// 开启调试模式
 var enableDebugMode = function(game, enable) {
     if(!enable) {
         return

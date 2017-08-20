@@ -3,7 +3,7 @@ class GuaGame {
         window.fps = fps
         this.images = images
         this.runCallback = runCallback
-        
+
         this.scene = null
         this.actions = {}
         this.keydowns = {}
@@ -18,7 +18,7 @@ class GuaGame {
         })
         this.init()
     }
-
+    // 使用单例模式确保只有一个实例
     static instance(...args) {
         this.i = this.i || new this(...args)
         return this.i
