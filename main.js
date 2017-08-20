@@ -7,10 +7,19 @@ var loadLevel = function(game, n) {
         var b = Block(game, p)
         blocks.push(b)
     }
+
+    currentLevel.num  = n
+    currentLevel.load = true
+    
     return blocks
 }
-
+// 包含砖块实例的数组
 var blocks = []
+// 当前关卡信息，默认第一关
+var currentLevel = {
+    num: 0,
+    load: false,
+}
 
 var enableDebugMode = function(game, enable) {
     if(!enable) {
@@ -24,7 +33,6 @@ var enableDebugMode = function(game, enable) {
             window.paused = !window.paused
         } else if ('1234567'.includes(k)) {
             // 为了 debug 临时加的载入关卡功能
-            log('debug loadLevel')
             blocks = loadLevel(game, Number(k))
         }
     })

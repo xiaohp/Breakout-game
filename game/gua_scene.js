@@ -3,8 +3,8 @@ class GuaScene {
         this.game = game
     }
     static new(game) {
-        var i = new this(game)
-        return i
+        this.i = this.i || new this(game)
+        return this.i
     }
     draw() {
 
